@@ -1,0 +1,75 @@
+
+<div>
+    <div>
+        <h1>Look At Our Students</h1>
+    </div>
+    <div>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2 smaller-input justify-content-end" type="search" placeholder="Lastname" aria-label="Search" [(ngModel)]="searchQuery" name="searchQuery">
+            <button class="btn btn-success" type="submit"(click)="onSearch()">Search</button>
+          </form>
+    </div>
+</div>
+<div *ngIf="studentList.length">
+    <table class="table table-hover">
+        <thead >
+            <th scope="col">
+                Username
+            </th>
+            <th scope="col">
+                Firstname
+            </th>
+            <th scope="col">
+                Lastname
+            </th>
+            <th scope="col">
+                Email
+            </th>
+            <th scope="col">
+                Address
+            </th>
+            <th scope="col">
+                Phone
+            </th>  
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of studentList">
+                <td>
+                    {{student.username}}
+                </td>
+                <td>
+                    {{student.Firstname}}
+                </td>
+                <td>
+                    {{student.lastname}}
+                </td>
+                <td>
+                    {{student.email}}
+                </td>
+                <td>
+                    {{student.address.area}} <br>
+                    {{student.address.road}} <br>
+                    {{student.address.postcode}}
+                </td>
+                <td>
+                    <div *ngFor="let phone of student.phone">
+                        {{phone.type}} <br>
+                        {{phone.number}}
+
+                    </div>
+                </td>
+                <td>
+                    <a class="btn action-btn text-dark"(click)="openPopup(student)">
+                        <i class="material-icons text-dark" >edit</i>
+                        <!-- <mat-icon aria-hidden="false" aria-label="Edit" fontIcon="edit"></mat-icon> -->
+                    </a>
+                    <a class = "btn action-btn text-danger" (click)="OnstudentDelete(student.username)" >
+                        <i class="material-icons text-danger">delete</i> 
+                        <!-- <mat-icon aria-hidden="false" aria-label="Delete" fontIcon="delete"></mat-icon> -->
+                    </a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

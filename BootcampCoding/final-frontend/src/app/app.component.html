@@ -1,0 +1,52 @@
+ <header>
+ <div class="container mt-4 " > 
+    <div class="row ">
+      <nav
+        class="p-2 navbar navbar-expand navbar-dark bg-success fixed-top scrolling-navbar"
+      >
+        <span class="navbar-brand mx-5">
+          <strong
+            ><a href="#" routerLink="" class="text-decoration-none text-white">{{
+              title
+            }}</a></strong
+          >
+        </span>
+       
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+          <ul class="navbar-nav mx-2">
+        <ul class="navbar-nav mx-5 ">
+          <app-dropdown
+            [dropdownLabel]="'Bootcamp'"
+            [items]="bootcampMenu"
+          ></app-dropdown>
+       </ul>
+        <li class="nav-item mx-5">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+          <li class="nav-item mx-5">
+                <a class="nav-link" href="#">Contact Us</a>
+              </li>
+              <li class="nav-item ml-auto ">
+              <ul class="navbar-nav mx-5">
+                
+                <app-dropdown
+                  [dropdownLabel]="'User'"
+                  [items]="usersMenu"
+                ></app-dropdown>
+            
+              </ul>
+            </li>
+        </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="row mt-5">
+      <main>
+      <router-outlet></router-outlet>
+    </main>
+    </div>
+  </div>
+</header> 
+
+
+

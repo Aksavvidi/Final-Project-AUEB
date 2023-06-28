@@ -1,0 +1,57 @@
+<div>
+    <h1>Check Out our Courses</h1>
+    <div>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2 smaller-input justify-content-end"[width]='200' type="search" placeholder="Course" aria-label="Course" [(ngModel)]="searchQuery" name="searchQuery">
+            <button class="btn btn-success" type="submit"(click)="onSearch()">Search</button>
+          </form>
+    </div>
+</div>
+
+
+<div *ngIf="coursesList.length">
+    <table class="table table-hover">
+        <thead>
+            <th scope="col">
+                Course
+            </th>
+            <th scope="col">
+                Start Date
+            </th>
+            <th scope="col">
+                End Date
+            </th>
+            <th scope="col">
+                Teacher
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let course of coursesList">
+                <td>
+                    {{course.course}}
+                </td>
+                <td>
+                    {{course.StartDate}}
+                </td>
+                <td>
+                    {{course.EndDate}}
+                </td>
+                <td>
+                    {{course.Teacher}}
+                </td>
+                <td>
+                    <a class="btn action-btn text-dark ">
+                        <i class="material-icons text-dark" >edit</i>
+                        <!-- <mat-icon aria-hidden="false" aria-label="Edit" fontIcon="edit"></mat-icon> -->
+                    </a>
+                    <a class = "btn action-btn text-danger" (click)="OnCourseDelete(course.course)" >
+                        <i class="material-icons text-danger">delete</i> 
+                        <!-- <mat-icon aria-hidden="false" aria-label="Delete" fontIcon="delete"></mat-icon> -->
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>

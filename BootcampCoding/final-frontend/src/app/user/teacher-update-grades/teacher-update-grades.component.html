@@ -1,0 +1,82 @@
+<h2>Student's Update Courses Form</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="row">
+  <div class="col mb-3">
+    <label for="username" class="form-label"></label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      formControlName="username"
+      placeholder="Username"
+    />
+  </div>
+  <div class="col mb-3">
+   
+  </div>
+</div>
+<div class="row">
+  <div class="col mb-3">
+    <label for="Firstname" class="form-label"></label>
+    <input type="text" class="form-control" id="firstname" formControlName="Firstname" placeholder="Firstname"/>
+  </div>
+  <div class="col mb-3">
+    <label for="lastname" class="form-label"></label>
+    <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Lastname"
+    />
+  </div>
+</div>
+  <h4>Course</h4>
+  <div formArrayName="courses">
+      <div *ngFor="let course of courseControls; let i = index" [formGroupName]="i">
+        <div class="row">
+            <div class="col-md-5">
+            <div class="mb-3">
+                <label for="type" class="form-label">Course</label>
+                <input
+                type="text"
+                class="form-control"
+                id="course"
+                formControlName="course"
+                />
+            </div>
+            </div>
+            <div class="col-md-5">
+            <div class="mb-3">
+                <label for="grade" class="form-label">Grade</label>
+                <input
+                type="text"
+                class="form-control"
+                id="grade"
+                formControlName="grade"
+                />
+            </div>
+            </div>
+            <div class="col-md-2">
+            <div class="mb-3">
+                <button
+                type="button"
+                class="btn btn-danger mt-4"
+                (click)="removeCourse(i)"
+                >
+                Remove
+                </button>
+            </div>
+            </div>
+        </div>
+      </div>
+     </div>
+
+  <div class="mb-3">
+    <button type="button" class="btn btn-success" (click)="addCourses()">
+      Add Course
+    </button>
+  </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="!form.valid">
+    Submit
+  </button>
+
+</form>
+
+

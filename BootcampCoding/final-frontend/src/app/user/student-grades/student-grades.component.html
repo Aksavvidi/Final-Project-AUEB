@@ -1,0 +1,54 @@
+
+<div>
+    <div>
+        <h1>Look At Your Grades</h1>
+    </div>
+    <div>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2 smaller-input justify-content-end" type="search" placeholder="username" aria-label="Search" [(ngModel)]="searchQuery" name="searchQuery">
+            <button class="btn btn-success" type="submit"(click)="onSearch()">Search</button>
+          </form>
+    </div>
+</div>
+<div *ngIf="studentGradesList.length">
+    <table class="table table-hover">
+        <thead >
+            <th scope="col">
+                Username
+            </th>
+            <th scope="col">
+                Firstname
+            </th>
+            <th scope="col">
+                Lastname
+            </th>
+            <th scope="col">
+                Course
+            </th> 
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of studentGradesList">
+                <td>
+                    {{student.username}}
+                </td>
+                <td>
+                    {{student.Firstname}}
+                </td>
+                <td>
+                    {{student.lastname}}
+                </td>
+                <td>
+                    <div *ngFor="let course of student.courses">
+                        {{course.course}}
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor="let course of student.courses">
+                        {{course.grade}}
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

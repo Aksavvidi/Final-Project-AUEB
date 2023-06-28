@@ -1,0 +1,30 @@
+/* @import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css"; */
+/* @import '~material-design-icons/iconfont/material-icons.css'; */
+header main {
+    background-image: url(../src/assets/images/bootcamp.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100% ;
+}
+
+.smaller-input {
+    width: 200px; /* Adjust the width to your desired size */
+  }
+
+  .table-hover tr:hover td {
+    background:  #14A44D; 
+}
+label {
+  background-color: #14A44D;
+  font-weight: bold;
+  color: white;
+}
+h2, h1, h4{
+  color: white;
+}
+html, body { height: 100%; }
+body { margin: 0; padding: 20px ; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

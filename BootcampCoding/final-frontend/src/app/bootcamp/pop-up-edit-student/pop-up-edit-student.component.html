@@ -1,0 +1,130 @@
+
+<div mat-dialog-title>
+    Student Form UpdateS
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="row">
+  <div class="col mb-3">
+    <label for="Firstname" class="form-label"></label>
+    <input type="text" class="form-control" id="firstname" formControlName="Firstname" placeholder="Firstname"/>
+  </div>
+  <div class="col mb-3">
+    <label for="lastname" class="form-label"></label>
+    <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Lastname"
+    />
+  </div>
+</div>
+<div class="row">
+  <div class="col mb-3">
+    <label for="email" class="form-label"></label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      formControlName="email"
+      placeholder="Email"
+    />
+  </div>
+  <div class="col mb-3">
+  </div>
+</div>
+  <div class="row">
+    <div class="col" formGroupName="address">
+      <h4>Address</h4>
+      <div class=" mb-3">
+        <label for="area" class="form-label"></label>
+        <input type="text" class="form-control"id="area"formControlName="area"placeholder="Area"/>
+      </div>
+      <div class=" mb-3">
+        <label for="road" class="form-label"></label>
+        <input type="text" class="form-control"id="road"formControlName="road"placeholder="Road"/>
+      </div>
+      <div class="mb-3">
+          <label for="postcode" class="form-label"></label>
+          <input type="text" class="form-control"id="postcode"formControlName="postcode"placeholder="Postcode"/>
+        </div>
+    </div>
+    <div class="col"></div>
+  </div>
+
+  <h4>Phone</h4>
+  <div formArrayName="phone">
+    <div *ngFor="let phone of phoneControls; let i = index" [formGroupName]="i">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="mb-3">
+            <label for="type" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="type"
+              formControlName="type"
+              placeholder="Phone Type"
+            />
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="mb-3">
+            <label for="number" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="number"
+              formControlName="number"
+              placeholder="Number"
+            />
+          </div>
+        </div>
+        <div class="col md-2">
+          <div class="mb-3">
+            <button
+              type="button"
+              class="btn btn-danger mt-4"(click)="removePhone(i)"
+            > Remove
+            </button> 
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="mb-3">
+    <button type="button" class="btn btn-success"(click)="addPhone()" >
+      Add Phone
+    </button>
+  </div>
+  <div class="md-3 justifie-content-end" >
+    <button type="submit" class="btn btn-success"[disabled]="!form.valid" >Update </button>
+    <button type="button" class="btn btn-danger"(click)="onCancel()" >Cancel </button>
+</div>
+</div>
+</form>
+
+
+<!-- 
+<div class="popup-container">
+    <div mat-dialog-title>
+        Student Form UpdateS
+    </div>
+    <div mat-dialog-content class="content" >
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Firstname</mat-label>
+                <input matInput type="text" placeholder="Firstname">
+              </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Lastname</mat-label>
+                <input matInput type="text" placeholder="Firstname">
+              </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" placeholder="Email">
+              </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button> Cancel</button>
+        <button mat-raised-button color="btn-success">Update</button>
+    </div>
+</div>   -->
+

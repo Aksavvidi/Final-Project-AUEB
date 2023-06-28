@@ -1,0 +1,27 @@
+{
+  "name": "studentcourseprofecors",
+  "version": "1.0.0",
+  "description": "A project for a Coding  Bootcamp web page",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "author": "Aikaterini Savvidi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.4",
+    "mongoose-to-swagger": "^1.4.0",
+    "mongoose-unique-validator": "^4.0.0",
+    "nodemon": "^2.0.22",
+    "swagger-ui-express": "^4.6.3",
+    "winston": "^3.9.0",
+    "winston-daily-rotate-file": "^4.7.1",
+    "winston-mongodb": "^5.1.1"
+  }
+}
