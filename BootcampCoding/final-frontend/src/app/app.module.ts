@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { SharedModule } from 'shared';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
@@ -24,12 +25,12 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomePageComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent,    
+    DropdownComponent,
     
-    DropdownComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes), BrowserAnimationsModule
+    BrowserModule, RouterModule.forRoot(routes), BrowserAnimationsModule,SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

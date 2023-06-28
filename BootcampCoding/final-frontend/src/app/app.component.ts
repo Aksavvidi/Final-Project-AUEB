@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuItem } from './app.intefaces';
+import { usersMenu, bootcampMenu } from 'shared';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +8,8 @@ import { MenuItem } from './app.intefaces';
 })
 export class AppComponent {
   title = 'Coding Bootcamp';
+  usersMenu = usersMenu;
+  bootcampMenu = bootcampMenu;
 
-  bootcampMenu: MenuItem[] = [
-    {text: 'Courses', link: 'bootcamp/courses'},
-    {text: ' Students', link: 'bootcamp/students'},
-    {text: 'Teachers', link: 'bootcamp/teachers'}
-  ];
-  usersMenu: MenuItem[] = [
-    {text: "Student's Grades", link: 'user/students-grades'},
-    {text: 'Teachers Update Grades', link: 'user/update-grades'},
-    {text: 'Student insert', link: 'user/insert-student'},
-  ];
+
 }

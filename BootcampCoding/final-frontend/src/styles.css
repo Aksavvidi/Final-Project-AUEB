@@ -5,7 +5,7 @@ header main {
     background-image: url(../src/assets/images/bootcamp.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100% ;
+    height: auto;
 }
 
 .smaller-input {
