@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Courses, CoursesAPIList } from '../bootcapm.interfaces';
 import { BootcampService } from '../bootcamp.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpEditCourseComponent } from '../pop-up-edit-course/pop-up-edit-course.component';
 
 @Component({
   selector: 'app-courses',
@@ -16,8 +18,17 @@ export class CoursesComponent implements OnInit, OnDestroy{
 
   subscription: Subscription | undefined;
 
-  constructor(private courseService: BootcampService) {}
+  constructor(private courseService: BootcampService, private dialog: MatDialog) {}
  
+  openPopup(course:any): void {
+    const dialogRef = this.dialog.open(PopUpEditCourseComponent, {
+      width: '800px',height:'80vh',
+      data: course // Pass the existing data here
+    });
+    dialogRef.afterClosed().subscribe() 
+      // Handle any actions or data returned after the popup is closed
+    ;
+  }
 
   ngOnInit(): void {
     console.log('Starting coursesFindAll API call');

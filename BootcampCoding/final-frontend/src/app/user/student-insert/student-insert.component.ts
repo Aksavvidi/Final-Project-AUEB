@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import {Student, StudentAPIList} from '../user.interfaces'
+import {Student, StudentAPIList} from 'shared'
 import { UserService } from '../user.service';
 @Component({
   selector: 'app-student-insert',

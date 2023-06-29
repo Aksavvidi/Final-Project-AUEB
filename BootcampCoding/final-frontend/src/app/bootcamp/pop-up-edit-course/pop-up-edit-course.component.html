@@ -1,1 +1,34 @@
-<p>pop-up-edit-course works!</p>
+
+<div mat-dialog-title>
+    Corse Form Update
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col mb-3">
+      <label for="course" class="form-label"></label>
+      <input type="text" class="form-control" id="course" formControlName="course" placeholder="Course name"/>
+    </div>
+    <div class="col mb-3">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <label for="StartDate" class="form-label"></label>
+      <input type="text" class="form-control" id="startDate" formControlName="startDate" placeholder="StartDate"/>
+    </div>
+    <div class="col mb-3">
+      <label for="EndDate" class="form-label"></label>
+      <input type="text" class="form-control" id="endDate" formControlName="endDate" placeholder="EndDate"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <label for="Teacher" class="form-label"></label>
+      <input type="teacher" class="form-control" id="teacher" formControlName="teacher" placeholder="Teacher of the course" />
+    </div>
+    <div class="col mb-3">
+    </div>
+  </div>
+</form>
+

@@ -1,50 +1,97 @@
  <header>
  <div class="container mt-4 " > 
     <div class="row ">
-      <nav
-        class="p-2 navbar navbar-expand navbar-dark bg-success fixed-top scrolling-navbar"
-      >
+      
+      <nav class="p-2 navbar navbar-expand navbar-dark bg-success fixed-top scrolling-navbar">
+         <!-- Brand/logo -->
         <span class="navbar-brand mx-5">
           <strong
-            ><a href="#" routerLink="" class="text-decoration-none text-white">{{
-              title
-            }}</a></strong
-          >
+            ><a href="#" routerLink="" class="text-decoration-none text-white">{{title}}</a></strong>
         </span>
-       
+
+          <!-- Display welcome message or logged-in user's full name and logout button -->
+        <span *ngIf="!(isLoggedIn$ | async); else fullname"> Welcome to the Future</span>
+          <ng-template #fullname>
+            <span> {{ loggedInUserFullname$ | async }}</span>
+              <button class="ms-2 btn btn-danger btn-sm" (click)="logout()">
+                Logout
+              </button>
+          </ng-template>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav mx-2">
-        <ul class="navbar-nav mx-5 ">
-          <app-dropdown
-            [dropdownLabel]="'Bootcamp'"
-            [items]="bootcampMenu"
-          ></app-dropdown>
-       </ul>
-        <li class="nav-item mx-5">
-                <a class="nav-link" href="#">About Us</a>
-              </li>
-          <li class="nav-item mx-5">
-                <a class="nav-link" href="#">Contact Us</a>
-              </li>
-              <li class="nav-item ml-auto ">
-              <ul class="navbar-nav mx-5">
-                
-                <app-dropdown
+            <!-- Bootcamp menu item -->
+            <li>
+            <ul class="navbar-nav mx-5 ">
+              <lib-dropdown
+                [dropdownLabel]="'Bootcamp'"
+                [items]="bootcampMenu"
+              ></lib-dropdown>
+             </ul>
+            </li>
+
+            <!-- About Us and Contact Us menu items -->
+            <li class="nav-item mx-5">
+                    <a class="nav-link" href="#">About Us</a>
+                  </li>
+            <li class="nav-item mx-5">
+                  <a class="nav-link" href="#">Contact Us</a>
+                </li>
+
+            <!-- User menu item (displayed when logged in) -->
+            <li class="nav-item ml-auto ">
+              <ul *ngIf="isLoggedIn$ | async; else loggedOut" class="navbar-nav mx-5">
+                <lib-dropdown
                   [dropdownLabel]="'User'"
                   [items]="usersMenu"
-                ></app-dropdown>
-            
+                ></lib-dropdown>
               </ul>
             </li>
-        </ul>
+          </ul>
+
+          <!-- Login button (displayed when logged out) -->
+          <ng-template #loggedOut>
+            <a class="btn btn-light" data-mdb-ripple-color="success" routerLink="/login" href="">Login</a>
+          </ng-template>
         </div>
       </nav>
     </div>
+    <!-- Main content of the application -->
     <div class="row mt-5">
       <main>
       <router-outlet></router-outlet>
     </main>
     </div>
+    <div class="footer">
+
+      <div class="pages">
+  
+          <div class="firstfoot foot">
+              <h4>Contact Us</h4>
+              <p><a href="#">adress:Are 234 Roade 44 Postcode  15963.</a></p>
+              <p>Telephone: (210) 555-5555</p>
+              <p>Email: CB@gmail.com</p>
+              <p><a href="#">Contact Form</a></p>
+          </div>
+          <div class="secondfoot foot">
+              <h4>Pages/Forms</h4>
+              <p><a href="/">Home</a></p>
+              <p><a href="/#about">About us</a></p>
+              <p><a href="/CCB_Courses-Form">Form For Courses</a></p>
+              <p><a href="/CCB_Trainers-Form">Form For Trainers</a></p>
+              <p><a href="/CCB_Students-Form">Form For Students</a></p>
+              <p><a href="/CCB_Assignments-Form.html">Form For Assignments</a></p>
+          </div>
+      </div>
+      <div class="thirdfoot foot">
+          <p class="author">Savvidi Katerina Final Project 2023</p>
+          <div id="media"><a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
+              <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
+              <a href="https://twitter.com/" class="fab fa-twitter-square"></a>
+          </div>
+      </div>
+  
+  
+  </div>
   </div>
  </header> 
 

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { BootcampService } from '../bootcamp.service';
 import { UpdateStudent } from '../bootcapm.interfaces';
 import {  MatDialogRef } from '@angular/material/dialog';
@@ -17,8 +16,10 @@ export class PopUpEditStudentComponent {
   constructor(private fb:FormBuilder, private service: BootcampService,
      private dialogRef: MatDialogRef<PopUpEditStudentComponent>,){
     this.form = this.fb.group({
+      username: ['', Validators.required],
       Firstname: ['', Validators.required],
       lastname:['', Validators.required],
+      email:['',Validators.required],
       address: this.fb.group({
         area:['', Validators.required],
         road:['', Validators.required],

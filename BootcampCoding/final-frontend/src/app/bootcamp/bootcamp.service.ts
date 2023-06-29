@@ -11,11 +11,12 @@ export class BootcampService {
 
   constructor(private http: HttpClient) { }
 
+  //  STUDENTS SERVICES
   studentFindAll(){
     return this.http.get<StudentAPIList>(`${BOOTCAMP_API}/api/students/findAll`);
   }
-  studentFindOne(lastname: string){
-    return this.http.get<StudentAPIList>(`${BOOTCAMP_API}/api/students/findOne/${lastname}`);
+  studentFindOne(username: string){
+    return this.http.get<StudentAPIList>(`${BOOTCAMP_API}/api/students/findOne/${username}`);
   }
   studentCreate(student:Student){
     return this.http.post<StudentAPIList>(`${BOOTCAMP_API}/api/students/create`,student);
@@ -26,7 +27,7 @@ export class BootcampService {
   updateStudent(username: string, student:UpdateStudent){
     return this.http.patch<UpdateStudentAPIList>(`${BOOTCAMP_API}/api/students/update/${username}`, student)
   }
-
+// COURSES SERVICES
   coursesFindAll(){
     return this.http.get<CoursesAPIList>(`${BOOTCAMP_API}/api/courses/findAll`);
   }
@@ -39,7 +40,11 @@ export class BootcampService {
   coursesDelete(course:string){
     return this.http.delete<CoursesAPIList>(`${BOOTCAMP_API}/api/courses/delete/${course}`);
   }
+  updateCourse(course: string, courses:Courses){
+    return this.http.patch<Courses>(`${BOOTCAMP_API}/api/students/update/${course}`, courses)
+  }
 
+  // TEACHERS SERVICES
   teachersFindAll(){
     return this.http.get<TeacherAPIList>(`${BOOTCAMP_API}/api/teachers/findAll`);
   }

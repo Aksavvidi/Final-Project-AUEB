@@ -1,12 +1,12 @@
 
 <div mat-dialog-title>
-    Student Form UpdateS
+    Student Form Update
 </div>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="row">
     <div class="col mb-3">
       <label for="username" class="form-label"></label>
-      <input type="text" class="form-control" id="username" formControlName="username" placeholder="Username"/>
+      <input type="text" class="form-control" id="username" formControlName="username"[value]="formData?.username" placeholder="Username"/>
     </div>
     <div class="col mb-3">
     </div>
@@ -14,28 +14,23 @@
 <div class="row">
   <div class="col mb-3">
     <label for="firstname" class="form-label"></label>
-    <input type="text" class="form-control" id="firstname" formControlName="firstname" placeholder="Firstname"/>
+    <input type="text" class="form-control" id="firstname" formControlName="firstname"[value]="formData?.firstname" placeholder="Firstname"/>
   </div>
   <div class="col mb-3">
     <label for="lastname" class="form-label"></label>
-    <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Lastname"
+    <input type="text" class="form-control" id="lastname" formControlName="lastname" [value]="formData?.lastname"  placeholder="Lastname"
     />
   </div>
 </div>
 <div class="row">
   <div class="col mb-3">
     <label for="email" class="form-label"></label>
-    <input
-      type="email"
-      class="form-control"
-      id="email"
-      formControlName="email"
-      placeholder="Email"
+    <input type="email" class="form-control" id="email" formControlName="email" [value]="formData?.email" placeholder="Email"
     />
   </div>
   <div class="col mb-3">
     <label for="course" class="form-label"></label>
-    <input type="text" class="form-control" id="course" formControlName="course" placeholder="Course">
+    <input type="text" class="form-control" id="course" formControlName="course" [value]="formData?.course" placeholder="Course">
    </div>
 </div>
   <div class="row">

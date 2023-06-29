@@ -1,10 +1,10 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import {  Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { BootcampService } from '../bootcamp.service';
 import { Student, StudentAPIList } from '../bootcapm.interfaces';
 import { Subscription } from 'rxjs';
 import { PopUpEditStudentComponent } from '../pop-up-edit-student/pop-up-edit-student.component';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 
 @Component({
@@ -14,19 +14,19 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   encapsulation: ViewEncapsulation.None,
 })
 export class StudentsComponent implements OnInit, OnDestroy{
- 
-  constructor(private studentService: BootcampService,private dialog: MatDialog){}
 
+
+  constructor(private studentService: BootcampService,private dialog: MatDialog){}
+  
   loading = false;  
   studentList: Student[] = [];
   searchQuery: string = '';
-
 
   subscription: Subscription | undefined;
 
   openPopup(student:any): void {
     const dialogRef = this.dialog.open(PopUpEditStudentComponent, {
-      width: '800px',height:'100vh',
+      width: '800px',height:'80vh',
       data: student // Pass the existing data here
     });
     dialogRef.afterClosed().subscribe() 
@@ -96,6 +96,7 @@ export class StudentsComponent implements OnInit, OnDestroy{
       
     })
   }
+
 
   ngOnDestroy(): void {   
       this.subscription?.unsubscribe();  

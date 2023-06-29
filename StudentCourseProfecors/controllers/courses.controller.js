@@ -19,8 +19,7 @@ exports.findOne = async (req, res) => {
   
       console.log('Find course with name', name);
   
-      const course = await Courses.findOne({course:name});
-      console.log(course);
+      const course = await Courses.findOne({course});
   
       if (!course) {
         return res.status(404).json({ status: false, data: 'Course not found' });

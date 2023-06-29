@@ -57,6 +57,12 @@ export interface Address {
     EndDate: string;
     Teacher: string;
   }
+  export interface UpdateCourses {
+    course: string;
+    StartDate: string;
+    EndDate: string;
+    Teacher: string;
+  }
 
   export interface CoursesAPIList{
     status: boolean;
@@ -79,5 +85,14 @@ export interface Address {
   }
   export interface UpdateTeacherAPIList {
     status: boolean;
-    students: UpdateTeacher[];
+    teachers: UpdateTeacher[];
+  }
+  export interface UpdateCoursesAPIList {
+    status: boolean;
+    students: UpdateCourses[];
+  }
+
+  export interface TeacherAPIOneUser{
+    status: boolean;
+    teachers: Teacher;
   }

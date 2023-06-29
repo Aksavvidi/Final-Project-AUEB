@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
-import { Student, StudentGradesUpdate } from '../user.interfaces';
+import { Student, StudentGradesUpdate } from 'shared';
 
 @Component({
   selector: 'app-teacher-update-grades',

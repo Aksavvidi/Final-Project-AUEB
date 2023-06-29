@@ -24,8 +24,8 @@ export class TeachersComponent implements OnInit, OnDestroy  {
 
   openPopup(teacher:any): void {
     const dialogRef = this.dialog.open(PopUpEditTeacherComponent, {
-      width: '800px',height:'100vh',
-      data: teacher 
+      width: '800px',height:'80vh',
+      data: teacher
     });
     dialogRef.afterClosed().subscribe() 
       // Handle any actions or data returned after the popup is closed
