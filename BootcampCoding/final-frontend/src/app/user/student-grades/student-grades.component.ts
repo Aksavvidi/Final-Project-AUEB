@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { StudentGrades, StudentGradesAPIList } from '../user.interfaces';
+import { StudentGrades, StudentGradesAPIList } from 'shared';
 import { Subscription } from 'rxjs';
 
 @Component({

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { MenuItem } from './app.intefaces';
+import { usersMenu, bootcampMenu } from 'shared';
+import { AppService } from './app.service';
+import { UiService } from 'ui';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +10,22 @@ import { MenuItem } from './app.intefaces';
 })
 export class AppComponent {
   title = 'Coding Bootcamp';
+  usersMenu = usersMenu;
+  bootcampMenu = bootcampMenu;
 
-  bootcampMenu: MenuItem[] = [
-    {text: 'Courses', link: 'bootcamp/courses'},
-    {text: ' Students', link: 'bootcamp/students'},
-    {text: 'Teachers', link: 'bootcamp/teachers'}
-  ];
-  usersMenu: MenuItem[] = [
-    {text: "Student's Grades", link: 'user/students-grades'},
-    {text: 'Teachers Update Grades', link: 'user/update-grades'},
-    {text: 'Student insert', link: 'user/insert-student'},
-  ];
+  isLoggedIn$ = this.service.isLoggedIn$;
+  loggedInUserFullname$ = this.service.loggedInUserFullname$;
+  isLoading$ = this.service.isLoading$;
+
+  alerts = this.uiService.alerts;
+
+  constructor(private service: AppService, private uiService: UiService) {}
+
+  logout() {
+    this.service.logout();
+  }
+
+  onAlertDismiss(index: number) {
+    this.uiService.alertDismiss(index);
+  }
 }

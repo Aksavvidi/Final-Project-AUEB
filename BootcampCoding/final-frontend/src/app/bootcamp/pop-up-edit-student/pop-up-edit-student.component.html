@@ -1,33 +1,41 @@
 
 <div mat-dialog-title>
-    Student Form UpdateS
+    Student Form Update
 </div>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-<div class="row">
-  <div class="col mb-3">
-    <label for="Firstname" class="form-label"></label>
-    <input type="text" class="form-control" id="firstname" formControlName="Firstname" placeholder="Firstname"/>
+  <div class="row">
+    <div class="col mb-3">
+      <label for="username" class="form-label"></label>
+      <input type="text" class="form-control" id="username" formControlName="username" placeholder="Username"/>
+    </div>
+    <div class="col mb-3">
+    </div>
   </div>
-  <div class="col mb-3">
-    <label for="lastname" class="form-label"></label>
-    <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Lastname"
-    />
+  <div class="row">
+    <div class="col mb-3">
+      <label for="Firstname" class="form-label"></label>
+      <input type="text" class="form-control" id="firstname" formControlName="Firstname" placeholder="Firstname"/>
+    </div>
+    <div class="col mb-3">
+      <label for="lastname" class="form-label"></label>
+      <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Lastname"
+      />
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col mb-3">
-    <label for="email" class="form-label"></label>
-    <input
-      type="email"
-      class="form-control"
-      id="email"
-      formControlName="email"
-      placeholder="Email"
-    />
+  <div class="row">
+    <div class="col mb-3">
+      <label for="email" class="form-label"></label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+        placeholder="Email"
+      />
+    </div>
+    <div class="col mb-3">
+    </div>
   </div>
-  <div class="col mb-3">
-  </div>
-</div>
   <div class="row">
     <div class="col" formGroupName="address">
       <h4>Address</h4>

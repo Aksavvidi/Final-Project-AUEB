@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { StudentGradesAPIList, StudentGrades, Student, StudentAPIList, StudentGradesUpdateAPIList, StudentGradesUpdate } from './user.interfaces';
+import { StudentGradesAPIList, Student, StudentAPIList, StudentGradesUpdateAPIList, StudentGradesUpdate } from 'shared';
 
 const USER_API = 'http://localhost:3000/api/students';
 

@@ -1,10 +1,11 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import {  Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { BootcampService } from '../bootcamp.service';
 import { Student, StudentAPIList } from '../bootcapm.interfaces';
 import { Subscription } from 'rxjs';
 import { PopUpEditStudentComponent } from '../pop-up-edit-student/pop-up-edit-student.component';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { AppService } from 'src/app/app.service';
+
 
 
 @Component({
@@ -14,19 +15,19 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   encapsulation: ViewEncapsulation.None,
 })
 export class StudentsComponent implements OnInit, OnDestroy{
- 
-  constructor(private studentService: BootcampService,private dialog: MatDialog){}
 
+
+  constructor(private studentService: BootcampService,private dialog: MatDialog, private appService: AppService){}
+  
   loading = false;  
   studentList: Student[] = [];
   searchQuery: string = '';
-
 
   subscription: Subscription | undefined;
 
   openPopup(student:any): void {
     const dialogRef = this.dialog.open(PopUpEditStudentComponent, {
-      width: '800px',height:'100vh',
+      width: '800px',height:'90vh',
       data: student // Pass the existing data here
     });
     dialogRef.afterClosed().subscribe() 
@@ -36,6 +37,7 @@ export class StudentsComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     console.log('Starting studentFindAll API call');
+    this.appService.setIsLoading(true);
     this.subscription = this.studentService.studentFindAll().subscribe({
       next: (apiData: StudentAPIList) => {
         const{status, students}= apiData;
@@ -44,11 +46,13 @@ export class StudentsComponent implements OnInit, OnDestroy{
 
       },
       error: (error) => {
-        this.loading = false;
+        this.appService.setIsLoading(false);
+        //this.loading = false;
         console.log(error)
       },
       complete:() => {
-        this.loading = false;
+        this.appService.setIsLoading(false);
+        //this.loading = false;
         console.log('API call completed');
       },
     
@@ -96,6 +100,7 @@ export class StudentsComponent implements OnInit, OnDestroy{
       
     })
   }
+
 
   ngOnDestroy(): void {   
       this.subscription?.unsubscribe();  

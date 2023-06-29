@@ -223,21 +223,21 @@ exports.options = {
                     }
                 }
             },
-            "/api/teachers/findOne/{lastname}":{
+            "/api/teachers/findOne/{username}":{
                 "get":{
                     "tags": [
                         "Teachers"
                     ],
                     "parameters":[
                         {
-                            "name":"lastname",
+                            "name":"username",
                             "in":"path",
                             "required":false,
                             "description":"Lastname of Teachers",
                             "type":"string"
                         }
                     ],
-                    "summary": "Gets a Teacher from the database by lastname",
+                    "summary": "Gets a Teacher from the database by username",
                     "responses":{
                         "200":{
                             "description": "Teacher find",

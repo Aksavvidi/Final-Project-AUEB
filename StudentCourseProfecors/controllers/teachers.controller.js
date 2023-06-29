@@ -14,20 +14,20 @@ exports.findAll = async (req, res) => {
 };
 exports.findOne = async (req, res) => {
     try {
-      const lastname = req.params.lastname;
+      const username = req.params.username;
   
-      console.log('Find teacher with lastname', lastname);
+      console.log('Find teacher with username', username);
   
-      const teacher = await Teachers.findOne({ lastname });
+      const teacher = await Teachers.findOne({ username });
   
       if (!teacher) {
         return res.status(404).json({ status: false, data: 'Teacher not found' });
       }
   
       res.status(200).json({ status: true, data: teacher });
-      console.log('Success in finding teacher', lastname);
+      console.log('Success in finding teacher', username);
     } catch (error) {
-      console.error(`Problem in finding teacher with lastname ${lastname}`, error);
+      console.error(`Problem in finding teacher with lastname ${username}`, error);
       res.status(400).json({ status: false, data: error });
     }
   };
