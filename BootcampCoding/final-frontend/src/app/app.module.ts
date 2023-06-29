@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiModule } from 'ui';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -34,7 +35,8 @@ const routes: Routes = [
     declarations: [
         AppComponent,
         PageNotFoundComponent,
-        DropdownComponent
+        DropdownComponent,
+        FooterComponent
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
+
 const routes: Routes = [
      {path: 'login', component: LoginComponent},
      {path: '', component: HomePageComponent}
@@ -13,7 +14,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     LoginComponent,
-    HomePageComponent
+    HomePageComponent,
   ],
   imports: [
     CommonModule, ReactiveFormsModule, RouterModule.forChild(routes)
