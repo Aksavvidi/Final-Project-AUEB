@@ -27,6 +27,7 @@ export class AppService {
   constructor(private http: HttpClient, private alertService:UiService, private router : Router) { }
 
   login(username:string, password:string) {
+    this.setIsLoading(true);
     this.http.get<TeacherAPIOneUser>(`${BOOTCAMP_API}/api/teachers/findOne/${username}`)
     .subscribe((teacher) => {
       console.log(teacher);

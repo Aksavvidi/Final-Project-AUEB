@@ -4,6 +4,7 @@ import { Student, StudentAPIList } from '../bootcapm.interfaces';
 import { Subscription } from 'rxjs';
 import { PopUpEditStudentComponent } from '../pop-up-edit-student/pop-up-edit-student.component';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { AppService } from 'src/app/app.service';
 
 
 
@@ -16,7 +17,7 @@ import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 export class StudentsComponent implements OnInit, OnDestroy{
 
 
-  constructor(private studentService: BootcampService,private dialog: MatDialog){}
+  constructor(private studentService: BootcampService,private dialog: MatDialog, private appService: AppService){}
   
   loading = false;  
   studentList: Student[] = [];
@@ -36,6 +37,7 @@ export class StudentsComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     console.log('Starting studentFindAll API call');
+    this.appService.setIsLoading(true);
     this.subscription = this.studentService.studentFindAll().subscribe({
       next: (apiData: StudentAPIList) => {
         const{status, students}= apiData;
@@ -44,11 +46,13 @@ export class StudentsComponent implements OnInit, OnDestroy{
 
       },
       error: (error) => {
-        this.loading = false;
+        this.appService.setIsLoading(false);
+        //this.loading = false;
         console.log(error)
       },
       complete:() => {
-        this.loading = false;
+        this.appService.setIsLoading(false);
+        //this.loading = false;
         console.log('API call completed');
       },
     
