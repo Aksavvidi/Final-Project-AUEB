@@ -9,6 +9,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiModule } from 'ui';
 import { FooterComponent } from './footer/footer.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -42,7 +43,7 @@ const routes: Routes = [
     bootstrap: [AppComponent],
     imports: [
         BrowserModule, RouterModule.forRoot(routes), BrowserAnimationsModule, 
-        SharedModule,  HttpClientModule, UiModule
+        SharedModule,  HttpClientModule, UiModule, MatIconModule
     ]
 })
 export class AppModule { }
