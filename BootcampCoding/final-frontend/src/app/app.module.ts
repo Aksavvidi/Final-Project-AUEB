@@ -12,10 +12,6 @@ import { FooterComponent } from './footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
 
 
-
-
-
-
 const routes: Routes = [
   {
     path: 'bootcamp',

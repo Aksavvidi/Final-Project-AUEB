@@ -1,124 +1,75 @@
-<h2>Students Form</h2>
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div class="row">
-  <div class="col mb-3">
-    <label for="username" class="form-label"></label>
-    <input
-      type="text"
-      class="form-control"
-      id="username"
-      formControlName="username"
-      placeholder="Username"
-    />
-  </div>
-  <div class="col mb-3">
-    <label for="password" class="form-label"></label>
-    <input
-      type="password"
-      class="form-control"
-      id="password"
-      formControlName="password"
-      placeholder="Password"
-    />
-  </div>
-</div>
-<div class="row">
-  <div class="col mb-3">
-    <label for="Firstname" class="form-label"></label>
-    <input type="text" class="form-control" id="firstname" formControlName="Firstname" placeholder="Firstname"/>
-  </div>
-  <div class="col mb-3">
-    <label for="lastname" class="form-label"></label>
-    <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Lastname"
-    />
-  </div>
-</div>
-<div class="row">
-  <div class="col mb-3">
-    <label for="email" class="form-label"></label>
-    <input
-      type="email"
-      class="form-control"
-      id="email"
-      formControlName="email"
-      placeholder="Email"
-    />
-  </div>
-  <div class="col mb-3">
-  </div>
-</div>
-  <div class="row">
-    <div class="col" formGroupName="address">
-      <h4>Address</h4>
-      <div class=" mb-3">
-        <label for="area" class="form-label"></label>
-        <input type="text" class="form-control"id="area"formControlName="area"placeholder="Area"/>
-      </div>
-      <div class=" mb-3">
-        <label for="road" class="form-label"></label>
-        <input type="text" class="form-control"id="road"formControlName="road"placeholder="Road"/>
-      </div>
-      <div class="mb-3">
-          <label for="postcode" class="form-label"></label>
-          <input type="text" class="form-control"id="postcode"formControlName="postcode"placeholder="Postcode"/>
-        </div>
+<div class="outerContainer"style="color: #14A44D;">
+  <h2>Students Form</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+    <div class="col mb-3">
+      <label for="username" class="form-label"></label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        formControlName="username"
+        placeholder="Username"
+      />
     </div>
-    <div class="col"></div>
-  </div>
-
-  <h4>Phone</h4>
-  <div formArrayName="phone">
-    <div *ngFor="let phone of phoneControls; let i = index" [formGroupName]="i">
-      <div class="row">
-        <div class="col-md-5">
-          <div class="mb-3">
-            <label for="type" class="form-label"></label>
-            <input
-              type="text"
-              class="form-control"
-              id="type"
-              formControlName="type"
-              placeholder="Phone Type"
-            />
-          </div>
-        </div>
-        <div class="col-md-5">
-          <div class="mb-3">
-            <label for="number" class="form-label"></label>
-            <input
-              type="text"
-              class="form-control"
-              id="number"
-              formControlName="number"
-              placeholder="Number"
-            />
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="mb-3">
-            <button
-              type="button"
-              class="btn btn-danger mt-4"
-              (click)="removePhone(i)"
-            >
-              Remove
-            </button>
-          </div>
-        </div>
-      </div>
+    <div class="col mb-3">
+      <label for="password" class="form-label"></label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        formControlName="password"
+        placeholder="Password"
+      />
     </div>
   </div>
-
-  <div class="mb-3">
-    <button type="button" class="btn btn-success" (click)="addPhone()">
-      Add Phone
-    </button>
+  <div class="row">
+    <div class="col mb-3">
+      <label for="Firstname" class="form-label"></label>
+      <input type="text" class="form-control" id="firstname" formControlName="Firstname" placeholder="Firstname"/>
+    </div>
+    <div class="col mb-3">
+      <label for="lastname" class="form-label"></label>
+      <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Lastname"
+      />
+    </div>
   </div>
- 
+  <div class="row">
+    <div class="col mb-3">
+      <label for="email" class="form-label"></label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+        placeholder="Email"
+      />
+    </div>
+    <div class="col mb-3">
+    </div>
+  </div>
+    <div class="row">
+      <div class="col" formGroupName="address">
+        <h4>Address</h4>
+        <div class=" mb-3">
+          <label for="area" class="form-label"></label>
+          <input type="text" class="form-control"id="area"formControlName="area"placeholder="Area"/>
+        </div>
+        <div class=" mb-3">
+          <label for="road" class="form-label"></label>
+          <input type="text" class="form-control"id="road"formControlName="road"placeholder="Road"/>
+        </div>
+        <div class="mb-3">
+            <label for="postcode" class="form-label"></label>
+            <input type="text" class="form-control"id="postcode"formControlName="postcode"placeholder="Postcode"/>
+          </div>
+      </div>
+      <div class="col"></div>
+    </div>
 
-    <h4>Course</h4>
-    <div formArrayName="courses">
-      <div *ngFor="let course of courseControls; let i = index" [formGroupName]="i">
+    <h4>Phone</h4>
+    <div formArrayName="phone">
+      <div *ngFor="let phone of phoneControls; let i = index" [formGroupName]="i">
         <div class="row">
           <div class="col-md-5">
             <div class="mb-3">
@@ -126,21 +77,21 @@
               <input
                 type="text"
                 class="form-control"
-                id="course"
-                formControlName="course"
-                placeholder="Course"
+                id="type"
+                formControlName="type"
+                placeholder="Phone Type"
               />
             </div>
           </div>
           <div class="col-md-5">
             <div class="mb-3">
-              <label for="grade" class="form-label"></label>
+              <label for="number" class="form-label"></label>
               <input
                 type="text"
                 class="form-control"
-                id="grade"
-                formControlName="grade"
-                placeholder="Grade"
+                id="number"
+                formControlName="number"
+                placeholder="Number"
               />
             </div>
           </div>
@@ -149,7 +100,7 @@
               <button
                 type="button"
                 class="btn btn-danger mt-4"
-                (click)="removeCourse(i)"
+                (click)="removePhone(i)"
               >
                 Remove
               </button>
@@ -160,13 +111,64 @@
     </div>
 
     <div class="mb-3">
-      <button type="button" class="btn btn-success" (click)="addCourses()">
-        Add Course
+      <button type="button" class="btn btn-success" (click)="addPhone()">
+        Add Phone
       </button>
     </div>
+  
+
+      <h4>Course</h4>
+      <div formArrayName="courses">
+        <div *ngFor="let course of courseControls; let i = index" [formGroupName]="i">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="mb-3">
+                <label for="type" class="form-label"></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="course"
+                  formControlName="course"
+                  placeholder="Course"
+                />
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="mb-3">
+                <label for="grade" class="form-label"></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="grade"
+                  formControlName="grade"
+                  placeholder="Grade"
+                />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="mb-3">
+                <button
+                  type="button"
+                  class="btn btn-danger mt-4"
+                  (click)="removeCourse(i)"
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button type="button" class="btn btn-success" (click)="addCourses()">
+          Add Course
+        </button>
+      </div>
 
 
-  <button type="submit" class="btn btn-success" [disabled]="!form.valid">
-    Submit
-  </button>
-</form>
+    <button type="submit" class="btn btn-success" [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+</div>
