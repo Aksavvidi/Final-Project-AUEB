@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { UiComponent } from './ui.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
     UiComponent,
-    DropdownComponent
+    DropdownComponent,
+    AlertComponent
   ],
   imports: [
     RouterModule,
@@ -15,7 +17,8 @@ import { DropdownComponent } from './dropdown/dropdown.component';
   ],
   exports: [
     UiComponent,
-    DropdownComponent
+    DropdownComponent,
+    AlertComponent
   ]
 })
 export class UiModule { }

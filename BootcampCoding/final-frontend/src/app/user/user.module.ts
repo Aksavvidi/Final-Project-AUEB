@@ -7,19 +7,22 @@ import { TeacherUpdateGradesComponent } from './teacher-update-grades/teacher-up
 import { UserService } from './user.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StudentInsertComponent } from './student-insert/student-insert.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 const routes: Routes = [
   {path: 'students-grades', component:StudentGradesComponent},
   {path:'update-grades', component:TeacherUpdateGradesComponent},
-  {path:'insert-student', component: StudentInsertComponent}
+  {path:'insert-student', component: StudentInsertComponent},
+  {path:'', component:WelcomeComponent}
 ]
 
 @NgModule({
   declarations: [
     StudentGradesComponent,
     TeacherUpdateGradesComponent,
-    StudentInsertComponent
+    StudentInsertComponent,
+    WelcomeComponent
     
   ],
   imports: [

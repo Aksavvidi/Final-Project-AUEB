@@ -57,41 +57,25 @@
     </div>
     <!-- Main content of the application -->
     <div class="row mt-5">
-      <main>
-      <router-outlet></router-outlet>
-    </main>
-    </div>
-    <div class="footer">
+      <lib-alert
+       *ngIf="isLoading$ | async"
+       [type]="'info'"
+       [text]="'Communicating with backend...'"
+       [spinner]="true"
+       >
+    </lib-alert>
 
-      <div class="pages">
-  
-          <div class="firstfoot foot">
-              <h4>Contact Us</h4>
-              <p><a href="#">adress:Are 234 Roade 44 Postcode  15963.</a></p>
-              <p>Telephone: (210) 555-5555</p>
-              <p>Email: CB@gmail.com</p>
-              <p><a href="#">Contact Form</a></p>
-          </div>
-          <div class="secondfoot foot">
-              <h4>Pages/Forms</h4>
-              <p><a href="/">Home</a></p>
-              <p><a href="/#about">About us</a></p>
-              <p><a href="/CCB_Courses-Form">Form For Courses</a></p>
-              <p><a href="/CCB_Trainers-Form">Form For Trainers</a></p>
-              <p><a href="/CCB_Students-Form">Form For Students</a></p>
-              <p><a href="/CCB_Assignments-Form.html">Form For Assignments</a></p>
-          </div>
-      </div>
-      <div class="thirdfoot foot">
-          <p class="author">Savvidi Katerina Final Project 2023</p>
-          <div id="media"><a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
-              <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
-              <a href="https://twitter.com/" class="fab fa-twitter-square"></a>
-          </div>
-      </div>
-  
-  
-  </div>
+      <lib-alert 
+        *ngFor="let alert of alerts index as i"
+        [type]=" alert.type ?? 'info'"
+        [heading]="alert.heading"
+        [text]="alert.text"
+        (dismiss)= "onAlertDismiss(i)"> 
+      </lib-alert>
+
+      <router-outlet></router-outlet>
+
+    </div>  
   </div>
  </header> 
 

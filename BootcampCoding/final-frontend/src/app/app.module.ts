@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UiModule } from 'projects/ui/src/public-api';
+import { UiModule } from 'ui';
 
 
 

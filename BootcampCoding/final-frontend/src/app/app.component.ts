@@ -17,7 +17,7 @@ export class AppComponent {
   loggedInUserFullname$ = this.service.loggedInUserFullname$;
   isLoading$ = this.service.isLoading$;
 
-  // alerts = this.uiService.alerts;
+  alerts = this.uiService.alerts;
 
   constructor(private service: AppService, private uiService: UiService) {}
 
@@ -25,7 +25,7 @@ export class AppComponent {
     this.service.logout();
   }
 
-  // onAlertDismiss(index: number) {
-  //   this.uiService.alertDismiss(index);
-  // }
+  onAlertDismiss(index: number) {
+    this.uiService.alertDismiss(index);
+  }
 }

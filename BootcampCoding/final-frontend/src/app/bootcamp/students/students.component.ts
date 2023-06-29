@@ -26,7 +26,7 @@ export class StudentsComponent implements OnInit, OnDestroy{
 
   openPopup(student:any): void {
     const dialogRef = this.dialog.open(PopUpEditStudentComponent, {
-      width: '800px',height:'80vh',
+      width: '800px',height:'90vh',
       data: student // Pass the existing data here
     });
     dialogRef.afterClosed().subscribe() 

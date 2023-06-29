@@ -64,6 +64,6 @@ export interface Course {
   
   export interface TeacherAPIOneUser{
     status: boolean;
-    teachers: Teacher;
+    data: Teacher;
   }
 
