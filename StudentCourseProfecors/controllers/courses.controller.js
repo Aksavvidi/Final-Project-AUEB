@@ -19,16 +19,17 @@ exports.findOne = async (req, res) => {
   
       console.log('Find course with name', name);
   
-      const course = await Courses.findOne({course});
+      const course = await Courses.findOne({name});
   
       if (!course) {
         return res.status(404).json({ status: false, data: 'Course not found' });
       }
   
       res.status(200).json({ status: true, data: course });
+      console.log(data);
       console.log('Success in finding course', name);
     } catch (error) {
-      console.error(`Problem in finding student with course ${course}`, error);
+      console.error(`Problem in finding student with course ${name}`, error);
       res.status(400).json({ status: false, data: error });
     }
   };

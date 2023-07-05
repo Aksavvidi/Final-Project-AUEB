@@ -134,7 +134,7 @@ exports.updateGrades = async function (req, res) {
     const studentUsername = req.params.username;
 
     const updatedData = {
-      courses: req.body.courses
+      $push: { courses: { $each: req.body.courses } }
     };
     console.log(updatedData);
     try{
@@ -148,6 +148,41 @@ exports.updateGrades = async function (req, res) {
       res.status(400).json({ status: false, data: error });
     } 
   }
+
+// exports.updateGrades = async function (req, res) {
+//   const studentUsername = req.params.username;
+//   const newCourses = req.body.courses;
+
+//   try {
+//     const student = await Students.findOne({ username: studentUsername });
+
+//     if (student) {
+//       const existingCourses = student.courses || [];
+//       const normalizedExistingCourses = existingCourses.map(course => course.toLowerCase());
+//       const uniqueNewCourses = newCourses.filter((course) => {
+//         const normalizedCourse = course.toLowerCase();
+//         return !normalizedExistingCourses.includes(normalizedCourse);
+//       });
+
+//       if (uniqueNewCourses.length > 0) {
+//         student.courses = [...existingCourses, ...uniqueNewCourses];
+//         const updatedGrades = await student.save();
+
+//         res.status(200).json({ status: true, data: updatedGrades });
+//         console.log('Success in updating student grades');
+//       } else {
+//         // No new unique courses to add
+//         res.status(200).json({ status: true, data: student });
+//       }
+//     } else {
+//       // In case where the student doesn't exist
+//       res.status(404).json({ status: false, data: 'Student not found' });
+//     }
+//   } catch (error) {
+//     console.log('Error in updating student grades', error);
+//     res.status(400).json({ status: false, data: error });
+//   }
+// };
    
 
 
