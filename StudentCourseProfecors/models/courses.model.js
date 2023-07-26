@@ -8,7 +8,6 @@ let courseSchema = new Schema ({
         type: String,
         required: [true, 'Courses name is required field'],
         max: 100,
-        unique: true,
         trim: true,
         lowercase: true
     },

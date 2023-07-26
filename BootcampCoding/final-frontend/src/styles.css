@@ -19,7 +19,7 @@ label {
   color: white;
 }
 h2, h1, h4{
-  color: white;
+  color: black;
 }
 html, body { height: 100%; }
 body { margin: 0; padding: 20px ; font-family: Roboto, "Helvetica Neue", sans-serif; }

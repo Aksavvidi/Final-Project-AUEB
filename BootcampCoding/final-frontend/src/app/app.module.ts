@@ -8,10 +8,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiModule } from 'ui';
-
-
-
-
+import { FooterComponent } from './footer/footer.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 const routes: Routes = [
@@ -34,13 +32,14 @@ const routes: Routes = [
     declarations: [
         AppComponent,
         PageNotFoundComponent,
-        DropdownComponent
+        DropdownComponent,
+        FooterComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule, RouterModule.forRoot(routes), BrowserAnimationsModule, 
-        SharedModule,  HttpClientModule, UiModule
+        SharedModule,  HttpClientModule, UiModule, MatIconModule
     ]
 })
 export class AppModule { }

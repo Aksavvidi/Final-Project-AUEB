@@ -14,20 +14,20 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { tap } from 'rxjs';
 
 
-const userGuard = () => {
-  const router = inject(Router);
-  const service = inject(AppService)
-  return service.isLoading$.pipe(
-    tap(isLoggedIn => {
-     if(!isLoggedIn) router.navigate(['/login']);
-    })
-  );
-};
+// const userGuard = () => {
+//   const router = inject(Router);
+//   const service = inject(AppService)
+//   return service.isLoading$.pipe(
+//     tap(isLoggedIn => {
+//      if(!isLoggedIn) router.navigate(['/login']);
+//     })
+//   );
+// };
 
 const routes: Routes = [
   {path: 'students-grades', component:StudentGradesComponent},
-  {path:'update-grades', component:TeacherUpdateGradesComponent, canActivate: [userGuard]},
-  {path:'insert-student', component: StudentInsertComponent, canActivate: [userGuard]},
+  {path:'update-grades', component:TeacherUpdateGradesComponent, },
+  {path:'insert-student', component: StudentInsertComponent, },
   {path:'', component:WelcomeComponent}
 ]
 

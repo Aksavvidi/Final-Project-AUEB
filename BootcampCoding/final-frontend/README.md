@@ -1,26 +1,27 @@
 # FinalFrontend
+Final Assignment for Coding Factory of AUEB
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+# Description
+Implementation of a Full Stack Project.This project was generated with node.js(express) as a backend [Angular CLI] version 16.1.0. for the frontend and MoongDB as the database.
 
-## Development server
+# Required Technologies
+1:NODE/EXPRESS.JS 
+2:MongoDB 
+2:Angular v16
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# How To Run The App
+1: Open Terminal  to file BootcampCoding/final-frontend and `npm install`
 
-## Code scaffolding
+2:Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3:Conect to MongoDB 
 
-## Build
+4:Open a second Terminal  to file StudentCourseProfecors (for backend) and run `node index.js` 
+the app will be running at localhost port:3000 (http://localhost:3000/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Further help
 

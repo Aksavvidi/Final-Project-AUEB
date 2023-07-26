@@ -1,0 +1,22 @@
+body {
+    background-image: url(../images/bootcamp.jpg);
+}
+.outerContainer {
+    background-image: url(../images/bootcamp.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+}
+
+.transbox p {
+    color: black;
+    margin: 5%;
+    font-weight: bold;
+}
+
+.transbox {
+    margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+}
